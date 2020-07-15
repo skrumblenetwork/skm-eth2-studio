@@ -1,0 +1,88 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  skm-lib:
+    docker:
+        - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-lib && npm test
+
+  skm-debug:
+     docker:
+        - image: circleci/node:10
+     environment:
+     working_directory: ~/repo
+     steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-debug && npm test
+
+  skm-analyzer:
+    docker:
+        - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-analyzer && npm test
+
+  skm-tests:
+    docker:
+        - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-tests && npm test
+
+  skm-astwalker:
+    docker:
+        - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-astwalker && npm test
+
+  skm-simulator:
+    docker:
+        - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-simulator && npm test
+
+  skm-url-resolver:
+    docker:
+      - image: circleci/node:10
+    environment:
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: npm install && npm run bootstrap
+      - run: cd skm-url-resolver && npm run build && npm test
+
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - skm-lib
+      - skm-debug
+      - skm-analyzer
+      - skm-tests
+      - skm-astwalker
+      - skm-simulator
+      - skm-url-resolver

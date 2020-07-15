@@ -1,0 +1,23 @@
+{
+  "lerna": "2.10.2",
+  "packages": [
+    "skm-debug",
+    "skm-lib",
+    "skm-solidity",
+    "skm-analyzer",
+    "skm-tests",
+    "skm-simulator",
+    "skm-url-resolver",
+    "skm-astwalker"
+  ],
+  "command": {
+    "init": {
+      "exact": true
+    },
+    "publish": {
+      "exact": true,
+      "skipGit": true
+    }
+  },
+  "version": "independent"
+}
